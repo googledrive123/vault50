@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="/js/mimicry.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arcuz</title>
+<style>html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#000}#game{position:fixed;inset:0}#game ruffle-player,#game ruffle-object{width:100%;height:100%;display:block}</style>
+<script>
+window.RufflePlayer = window.RufflePlayer || {};
+window.RufflePlayer.config = { publicPath: "../_ruffle/", autoplay: "on", unmuteOverlay: "hidden", splashScreen: false,
+  letterbox: "on", backgroundColor: "#000000", contextMenu: "rightClickOnly", warnOnUnsupportedContent: false,
+  showSwfDownload: false, openUrlMode: "deny", allowNetworking: "all", polyfills: false };
+</script>
+<script src="../_ruffle/ruffle.js"></script>
+</head>
+<body>
+<div id="game"></div>
+<script>
+(function () {
+  var player = window.RufflePlayer.newest().createPlayer();
+  player.style.width = "100%";
+  player.style.height = "100%";
+  document.getElementById("game").appendChild(player);
+  player.load({ url: "game.swf", parameters: {} });
+  player.addEventListener("click", function () { player.focus(); });
+  setTimeout(function () { try { player.focus(); } catch (e) {} }, 500);
+})();
+</script>
+</body>
+</html>
